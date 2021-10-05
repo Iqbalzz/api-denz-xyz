@@ -26,7 +26,9 @@ var { fetchJson } = require(__path + '/lib/fetcher.js');
 var options = require(__path + '/lib/options.js');
 var {
 	Searchnabi,
-	Gempa
+	Gempa,
+    Gambar,
+    Nhentai
 } = require('./../lib');
 
 var {
@@ -693,6 +695,16 @@ router.get('/info/cuaca', async(req, res, next) => {
     res.json(loghandler.invalidKey)
   }
 })
+
+router.get('/nsfw/nhentai', async (req, res, next) => {
+nhentaizip()
+       .then(result => {
+       	res.json({
+       	creator: creator,
+       result
+})
+})
+
 router.get('/info/gempa', async (req, res, next) => {
 	        var Apikey = req.query.apikey
 
